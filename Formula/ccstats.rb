@@ -1,8 +1,8 @@
 class Ccstats < Formula
-  desc "Fast Claude Code token usage statistics CLI"
+  desc "Fast Claude Code and OpenAI Codex usage statistics CLI"
   homepage "https://github.com/majiayu000/ccstats"
-  url "https://crates.io/api/v1/crates/ccstats/0.1.18/download"
-  sha256 "f1511ed3b93767a5264df803ec56a72b8ea1ce89148356f3814e78ace56c80bb"
+  url "https://crates.io/api/v1/crates/ccstats/0.2.57/download"
+  sha256 "c5a324ce0df8320ceed9dc02e6b6b5255db53dad6813446bd7f3688f542e810b"
   license "MIT"
 
   depends_on "rust" => :build
