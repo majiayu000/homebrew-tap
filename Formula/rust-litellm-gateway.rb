@@ -4,6 +4,8 @@ class RustLitellmGateway < Formula
   version "0.5.0"
   license "MIT"
 
+  depends_on :macos
+
   if OS.mac? && Hardware::CPU.arm?
     url "https://github.com/majiayu000/litellm-rs/releases/download/v0.5.0/rust-litellm-gateway-v0.5.0-macos-aarch64.tar.gz"
     sha256 "962706d1741b4ac83d266cc0926660c849f372e431d9b62f73b76b12420486a3"
