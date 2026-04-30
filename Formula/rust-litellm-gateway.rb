@@ -1,19 +1,22 @@
 class RustLitellmGateway < Formula
   desc "High-performance AI gateway with OpenAI-compatible APIs"
   homepage "https://github.com/majiayu000/litellm-rs"
-  url "https://crates.io/api/v1/crates/litellm-rs/0.4.16/download"
-  sha256 "aa22a5e8638de81bfc989d13754e300eb6cdddff22e4732f0ebed7e5e88a1170"
+  version "0.5.0"
   license "MIT"
 
-  depends_on "rust" => :build
+  if OS.mac? && Hardware::CPU.arm?
+    url "https://github.com/majiayu000/litellm-rs/releases/download/v0.5.0/rust-litellm-gateway-v0.5.0-macos-aarch64.tar.gz"
+    sha256 "962706d1741b4ac83d266cc0926660c849f372e431d9b62f73b76b12420486a3"
+  elsif OS.mac?
+    url "https://github.com/majiayu000/litellm-rs/releases/download/v0.5.0/rust-litellm-gateway-v0.5.0-macos-x86_64.tar.gz"
+    sha256 "67a1e47608f9f2d1d21c8d0bfd35b9bfec155f523cf0ab7ddba087a547e48231"
+  end
 
   def install
-    system "cargo", "install", *std_cargo_args(path: ".")
+    bin.install "gateway"
   end
 
   test do
-    assert_path_exists bin/"gateway"
-    assert_path_exists bin/"google-gateway"
-    assert_match "Pricing Management Tool 1.0", shell_output("#{bin}/pricing-tool --version")
+    assert_match "gateway #{version}", shell_output("#{bin}/gateway --version")
   end
 end
