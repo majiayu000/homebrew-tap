@@ -8,10 +8,10 @@ class RustLitellmGateway < Formula
 
   if OS.mac? && Hardware::CPU.arm?
     url "https://github.com/majiayu000/litellm-rs/releases/download/v0.5.0/rust-litellm-gateway-v0.5.0-macos-aarch64.tar.gz"
-    sha256 "962706d1741b4ac83d266cc0926660c849f372e431d9b62f73b76b12420486a3"
+    sha256 "804894fbec45937dc7fe192377b9440fbddacbfa6f9225f78a40474b967c930a"
   elsif OS.mac?
     url "https://github.com/majiayu000/litellm-rs/releases/download/v0.5.0/rust-litellm-gateway-v0.5.0-macos-x86_64.tar.gz"
-    sha256 "67a1e47608f9f2d1d21c8d0bfd35b9bfec155f523cf0ab7ddba087a547e48231"
+    sha256 "9ef39b0d873dd82cd4b7894f2185974b0f8db1dcf2147483561611afbd381705"
   end
 
   def install
