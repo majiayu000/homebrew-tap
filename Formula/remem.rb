@@ -4,53 +4,57 @@
 class Remem < Formula
   desc "Persistent memory for Claude Code and Codex"
   homepage "https://github.com/majiayu000/remem"
-  version "0.5.141"
+  version "0.5.197"
   license "MIT"
 
   on_macos do
     on_intel do
-      url "https://github.com/majiayu000/remem/releases/download/v0.5.141/remem-darwin-x64.tar.gz"
-      sha256 "8ff46fdb77226f8d0cba15a401efc9c7e1ff89af3a80133897639251d73c8c80"
+      url "https://github.com/majiayu000/remem/releases/download/v0.5.197/remem-darwin-x64.tar.gz"
+      sha256 "f6d736bb8f85b642d9a50e019a1b7303ab16ffc0fa3127431e9384d9977a5d0e"
     end
     on_arm do
-      url "https://github.com/majiayu000/remem/releases/download/v0.5.141/remem-darwin-arm64.tar.gz"
-      sha256 "cd5da453a8c852b937914b8f5bea149be50b40cb488dc5326529292c1a1be82a"
+      url "https://github.com/majiayu000/remem/releases/download/v0.5.197/remem-darwin-arm64.tar.gz"
+      sha256 "685b8038fa94a6783aaaa76e0e9d9fc1106bd0c0673952e33c71882d21bfb854"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/majiayu000/remem/releases/download/v0.5.141/remem-linux-x64.tar.gz"
-      sha256 "9667bd7da85d58ed9b91b368df43095e6c1bf6ecd5e6f27a3a965569ea8e9ae4"
+      url "https://github.com/majiayu000/remem/releases/download/v0.5.197/remem-linux-x64.tar.gz"
+      sha256 "8ce842106405b8df7a714e9b1c53998a30cb2353b0544701c395cc6ebd07f579"
     end
     on_arm do
-      url "https://github.com/majiayu000/remem/releases/download/v0.5.141/remem-linux-arm64.tar.gz"
-      sha256 "4ff23b84ca9f7da99206952328c7f88ce3180026769afd2d86a9b1c2d9c3c55d"
+      url "https://github.com/majiayu000/remem/releases/download/v0.5.197/remem-linux-arm64.tar.gz"
+      sha256 "88b8d141c15ddb8f296e33cb2186ae27c87bebf286ed2418e7e3a06b8cbb4613"
     end
   end
 
   def install
-    bin.install "remem"
+    bin.install "remem" => "remem"
+    if OS.mac? && Hardware::CPU.arm?
+      system "codesign", "--force", "--sign", "-", bin/"remem"
+    end
   end
 
   def caveats
     <<~EOS
-      Finish agent integration after installing the binary:
+      Finish agent integration after installing the binary by choosing
+      the agent configuration to create:
 
-        remem install
+        REMEM_INSTALL_BINARY=#{opt_bin}/remem remem install --target codex
+        REMEM_INSTALL_BINARY=#{opt_bin}/remem remem install --target claude
+        REMEM_INSTALL_BINARY=#{opt_bin}/remem remem install --target all
 
-      That auto-detects Claude Code and Codex CLI config directories.
-      To force a host:
+      If Claude Code or Codex CLI config directories already exist,
+      auto-detection is also available:
 
-        remem install --target codex
-        remem install --target claude
-        remem install --target all
+        REMEM_INSTALL_BINARY=#{opt_bin}/remem remem install
 
       Run remem doctor to verify or troubleshoot the integration.
     EOS
   end
 
   test do
-    assert_match "remem 0.5.141", shell_output("#{bin}/remem --version")
+    assert_match "remem 0.5.197", shell_output("#{bin}/remem --version")
   end
 end
