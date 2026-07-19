@@ -4,28 +4,28 @@
 class Remem < Formula
   desc "Persistent memory for Claude Code and Codex"
   homepage "https://github.com/majiayu000/remem"
-  version "0.6.7"
+  version "0.6.8"
   license "MIT"
 
   on_macos do
     on_intel do
-      url "https://github.com/majiayu000/remem/releases/download/v0.6.7/remem-darwin-x64.tar.gz"
-      sha256 "8114a3db479283cf140965d538dacae67c349a3d74d3fedc4ceea5870c060717"
+      url "https://github.com/majiayu000/remem/releases/download/v0.6.8/remem-darwin-x64.tar.gz"
+      sha256 "f28c8451f86712448fd549463916f94b0feeac9397d3112e3d5ac96e16ec520f"
     end
     on_arm do
-      url "https://github.com/majiayu000/remem/releases/download/v0.6.7/remem-darwin-arm64.tar.gz"
-      sha256 "46d0630cda8380c73ad4161006d3bb73604cc2090fea20e5eca4255ba29adc2c"
+      url "https://github.com/majiayu000/remem/releases/download/v0.6.8/remem-darwin-arm64.tar.gz"
+      sha256 "11672b415334b3ed06ee2a81b7ef0337210de2ba8b4cce5c536377173cc11579"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/majiayu000/remem/releases/download/v0.6.7/remem-linux-x64.tar.gz"
-      sha256 "8c90ee84a105d790028963efbc6e4d1b5d480019b053cf434c96a521e7402e83"
+      url "https://github.com/majiayu000/remem/releases/download/v0.6.8/remem-linux-x64.tar.gz"
+      sha256 "c3083e357045fb88421e3b5267787908b55f3a6fd4ac0a27dd7435c96a13ec1c"
     end
     on_arm do
-      url "https://github.com/majiayu000/remem/releases/download/v0.6.7/remem-linux-arm64.tar.gz"
-      sha256 "d282448fd57cef6fff2015e732ea0d6527dafb1d305b3fb97c14812f7552529b"
+      url "https://github.com/majiayu000/remem/releases/download/v0.6.8/remem-linux-arm64.tar.gz"
+      sha256 "5ccd040097b0bc4ce04b12306b9e79800f8ae72b76a79891d131847524d97ace"
     end
   end
 
@@ -55,6 +55,6 @@ class Remem < Formula
   end
 
   test do
-    assert_match "remem 0.6.7", shell_output("#{bin}/remem --version")
+    assert_match "remem 0.6.8", shell_output("#{bin}/remem --version")
   end
 end
