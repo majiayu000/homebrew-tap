@@ -4,35 +4,37 @@
 class Remem < Formula
   desc "Persistent memory for Claude Code and Codex"
   homepage "https://github.com/majiayu000/remem"
-  version "0.6.93"
+  version "0.6.96"
   license "MIT"
 
   on_macos do
     on_intel do
-      url "https://github.com/majiayu000/remem/releases/download/v0.6.93/remem-darwin-x64.tar.gz"
-      sha256 "db95474708bffe0c2b79051d07a0582f5cb7970cb3a66e8dc7de02fd7a43d896"
+      url "https://github.com/majiayu000/remem/releases/download/v0.6.96/remem-darwin-x64.tar.gz"
+      sha256 "415bc5df25b4a603189ce2ea67ae5830f5d85e611558bb3efeaa5e11f6587f46"
     end
     on_arm do
-      url "https://github.com/majiayu000/remem/releases/download/v0.6.93/remem-darwin-arm64.tar.gz"
-      sha256 "246b5429fa2b141424ba95186b2f2317f796c0f4b27b1c14ee5d8b9a10167d81"
+      url "https://github.com/majiayu000/remem/releases/download/v0.6.96/remem-darwin-arm64.tar.gz"
+      sha256 "37495ecfd7b4b1bb298743f95fc353973761d9f058bfea54378d3ad829209e1c"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/majiayu000/remem/releases/download/v0.6.93/remem-linux-x64.tar.gz"
-      sha256 "72fe4b6b06ad540a6ec84a063c793012bc858289524bcf8c5b9e335dcc5fedbc"
+      url "https://github.com/majiayu000/remem/releases/download/v0.6.96/remem-linux-x64.tar.gz"
+      sha256 "5315590a59a53226a7284da378a5f54dbd1b279cd87e52bf16f13c6508f5d66b"
     end
     on_arm do
-      url "https://github.com/majiayu000/remem/releases/download/v0.6.93/remem-linux-arm64.tar.gz"
-      sha256 "5531695e878a5992f0eef7c3914d66e1510d314aff4909f16cf1c19930b75b1d"
+      url "https://github.com/majiayu000/remem/releases/download/v0.6.96/remem-linux-arm64.tar.gz"
+      sha256 "595c909e1646a6f026ada5ef35f401d40759168e14ee85a85cfb13f87936e400"
     end
   end
 
   def install
     bin.install "remem" => "remem"
     if OS.mac? && Hardware::CPU.arm?
-      system "codesign", "--force", "--sign", "-", bin/"remem"
+      unless quiet_system "codesign", "--verify", bin/"remem"
+        system "codesign", "--force", "--sign", "-", bin/"remem"
+      end
     end
   end
 
@@ -55,6 +57,6 @@ class Remem < Formula
   end
 
   test do
-    assert_match "remem 0.6.93", shell_output("#{bin}/remem --version")
+    assert_match "remem 0.6.96", shell_output("#{bin}/remem --version")
   end
 end
