@@ -40,3 +40,49 @@ brew uninstall remem
 ```
 
 Formula versions and download checksums are recorded in [`Formula/`](Formula/).
+
+## Choose the intended formula and command
+
+A fully qualified formula name selects this tap when another tap offers a similar
+name. For example, to inspect and install this distribution of remem:
+
+```bash
+brew info --formula majiayu000/tap/remem
+brew install majiayu000/tap/remem
+remem --version
+```
+
+`brew info` and [Formula/](Formula/) show this tap's pinned release. An upstream
+release announcement does not mean the formula already points to that release.
+After installation, follow the upstream project's setup guide; remem's agent hooks
+and a gateway's runtime configuration are separate from copying an executable.
+
+### Which AtlasCloud distribution do I want?
+
+This tap's `atlascloud-cli` v0.1.0 archives expose `atlas` and `atlas-mcp`.
+The separately maintained [AtlasCloudAI tap](https://github.com/AtlasCloudAI/homebrew-tap#readme)
+uses the formula name `atlascloud` and exposes `atlas`. Inspect the source and
+version before choosing a distribution:
+
+```bash
+brew info --formula majiayu000/tap/atlascloud-cli
+brew info --formula AtlasCloudAI/tap/atlascloud
+command -v atlas
+atlas version
+```
+
+Both can expose the same command name. Resolve any existing installation/link
+conflict deliberately using Homebrew's output; installing one formula is not a
+migration procedure for the other distribution.
+
+## Support and upstream documentation
+
+For a formula URL, checksum, build, or linking failure, open
+[a tap issue](https://github.com/majiayu000/homebrew-tap/issues) with the fully
+qualified formula, OS/architecture, pinned version, and exact error. For runtime
+behavior, use the relevant upstream project's issue tracker from the table above.
+Package licenses are declared in each formula and maintained by their upstream
+projects; this tap is not a shared application with one setup or runtime license.
+
+[Homebrew's tap documentation](https://docs.brew.sh/Taps) explains tap names and
+fully qualified formula selection.
