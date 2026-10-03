@@ -1,0 +1,53 @@
+name: Update Keyspoor
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "27 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-keyspoor
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.ref == 'refs/heads/main'
+    runs-on: macos-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Verify release assets and update formula
+        id: update
+        run: |
+          python3 scripts/update-keyspoor.py
+          if git diff --quiet -- Formula/keyspoor.rb; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Install and test formula
+        if: github.event_name == 'workflow_dispatch' || steps.update.outputs.changed == 'true'
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: "1"
+          HOMEBREW_NO_INSTALL_CLEANUP: "1"
+        run: |
+          brew tap-new keyspoor/validation
+          cp Formula/keyspoor.rb "$(brew --repository keyspoor/validation)/Formula/keyspoor.rb"
+          brew install keyspoor/validation/keyspoor
+          brew test keyspoor/validation/keyspoor
+          brew audit --strict --formula keyspoor/validation/keyspoor
+      - name: Commit formula update
+        if: steps.update.outputs.changed == 'true'
+        run: |
+          git add Formula/keyspoor.rb
+          if git diff --cached --quiet; then
+            echo "Keyspoor is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "keyspoor: update verified release"
+          git push origin HEAD:main

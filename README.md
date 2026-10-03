@@ -2,6 +2,7 @@
 
 Homebrew formulae for [remem](https://github.com/majiayu000/remem),
 [ccstats](https://github.com/majiayu000/ccstats),
+[keyspoor](https://github.com/majiayu000/keyspoor),
 [rust-litellm-gateway](https://github.com/majiayu000/litellm-rs), and AtlasCloud CLI.
 This repository distributes packages; application source and usage documentation live upstream.
 
@@ -12,6 +13,7 @@ With [Homebrew](https://brew.sh/) installed, choose a formula:
 ```bash
 brew tap majiayu000/tap
 brew install remem
+# Or: brew install keyspoor
 # Or: brew install ccstats
 # Or: brew install rust-litellm-gateway
 # Or: brew install atlascloud-cli
@@ -20,6 +22,7 @@ brew install remem
 | Formula | Installed command | Documentation | Platforms in this tap |
 | --- | --- | --- | --- |
 | [`remem`](Formula/remem.rb) | `remem` | [Agent memory and integration](https://github.com/majiayu000/remem#readme) | macOS and Linux, Intel and ARM64 |
+| [`keyspoor`](Formula/keyspoor.rb) | `keyspoor` | [Secret scanning and agent interfaces](https://github.com/majiayu000/keyspoor#readme) | macOS and Linux, Intel and ARM64 |
 | [`ccstats`](Formula/ccstats.rb) | `ccstats` | [Usage statistics](https://github.com/majiayu000/ccstats#readme) | Builds from source with Rust |
 | [`rust-litellm-gateway`](Formula/rust-litellm-gateway.rb) | `gateway` | [AI gateway](https://github.com/majiayu000/litellm-rs#readme) | macOS, Intel and Apple Silicon |
 | [`atlascloud-cli`](Formula/atlascloud-cli.rb) | `atlas`, `atlas-mcp` | [Pinned distribution release](https://github.com/majiayu000/homebrew-tap/releases/tag/atlascloud-cli-v0.1.0) | macOS and Linux, Intel and ARM64 |
@@ -86,3 +89,13 @@ projects; this tap is not a shared application with one setup or runtime license
 
 [Homebrew's tap documentation](https://docs.brew.sh/Taps) explains tap names and
 fully qualified formula selection.
+
+## Keyspoor updates
+
+The [Keyspoor updater](.github/workflows/update-keyspoor.yml) checks the latest stable
+upstream release hourly (GitHub schedules can be delayed) and can also be run manually
+with **Run workflow**. It verifies all four binaries plus licensing files against the
+release `SHA256SUMS`, installs and tests the macOS formula, and commits only
+`Formula/keyspoor.rb`. It uses this repository’s short-lived `GITHUB_TOKEN`; no personal
+access token or cross-repository secret is needed. Missing downloads, checksum mismatches,
+installation failures, or rejected pushes fail the workflow visibly.
