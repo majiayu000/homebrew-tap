@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import subprocess
 from urllib.request import Request, urlopen
 
 
@@ -19,7 +20,9 @@ def download(url):
 
 
 def main():
-    release = json.loads(download(f"https://api.github.com/repos/{REPO}/releases/latest"))
+    release = json.loads(subprocess.check_output(
+        ["gh", "api", f"repos/{REPO}/releases/latest"], text=True, timeout=60,
+    ))
     tag = release["tag_name"]
     if release["draft"] or release["prerelease"] or not re.fullmatch(r"v\d+\.\d+\.\d+", tag):
         raise ValueError(f"Expected a stable vX.Y.Z release, received {tag!r}")
