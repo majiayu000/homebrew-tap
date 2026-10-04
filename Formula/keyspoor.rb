@@ -5,33 +5,33 @@ class Keyspoor < Formula
 
   on_macos do
     on_intel do
-      url "https://github.com/majiayu000/keyspoor/releases/download/v0.1.2/keyspoor-v0.1.2-x86_64-apple-darwin"
-      sha256 "bed3ad9cacb20bdf8dfc701770dd0715f18bf0a25641269e4804e03137928225"
+      url "https://github.com/majiayu000/keyspoor/releases/download/v0.1.3/keyspoor-v0.1.3-x86_64-apple-darwin"
+      sha256 "d94a26bc3bcd03b08669aec2d6ab02b42a9692b83fe139c14457f05dbd5e53e8"
     end
     on_arm do
-      url "https://github.com/majiayu000/keyspoor/releases/download/v0.1.2/keyspoor-v0.1.2-aarch64-apple-darwin"
-      sha256 "1e65ffd9eaf3aa06d90aaf689120a386d944c231cb053738145d5a1aeba57ced"
+      url "https://github.com/majiayu000/keyspoor/releases/download/v0.1.3/keyspoor-v0.1.3-aarch64-apple-darwin"
+      sha256 "6a46b5ded3b0c6d3f16bfdea05b46bd28639a95353aad6858dbb450265226ab8"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/majiayu000/keyspoor/releases/download/v0.1.2/keyspoor-v0.1.2-x86_64-unknown-linux-gnu"
-      sha256 "bfc0d5872c944c1e2fd79bba6f27b2cfecb59858546a406df5ddbd1fae1337c9"
+      url "https://github.com/majiayu000/keyspoor/releases/download/v0.1.3/keyspoor-v0.1.3-x86_64-unknown-linux-gnu"
+      sha256 "7105fb2a045f4efba00bb5daa5bbc554bf4f65eb9abe167d7e20b0c2620de32c"
     end
     on_arm do
-      url "https://github.com/majiayu000/keyspoor/releases/download/v0.1.2/keyspoor-v0.1.2-aarch64-unknown-linux-gnu"
-      sha256 "b9b5323999ea2919280f513284ee0e030032857f2bb682e83cfcbb449cc87bdc"
+      url "https://github.com/majiayu000/keyspoor/releases/download/v0.1.3/keyspoor-v0.1.3-aarch64-unknown-linux-gnu"
+      sha256 "bcb59454ec13bcb86a6d36b5ab6b328a482869387a67ec49c48fc73a07efa8d6"
     end
   end
 
   resource "LICENSE" do
-    url "https://github.com/majiayu000/keyspoor/releases/download/v0.1.2/LICENSE"
+    url "https://github.com/majiayu000/keyspoor/releases/download/v0.1.3/LICENSE"
     sha256 "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
   end
 
   resource "THIRD_PARTY_NOTICES" do
-    url "https://github.com/majiayu000/keyspoor/releases/download/v0.1.2/THIRD_PARTY_NOTICES"
+    url "https://github.com/majiayu000/keyspoor/releases/download/v0.1.3/THIRD_PARTY_NOTICES"
     sha256 "2384b40f9fb846b77ac0dc07b66092973c82cbbe708cb2e451a7c975def7f605"
   end
 
