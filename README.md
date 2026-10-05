@@ -1,9 +1,10 @@
 # Homebrew tap for developer tools
 
-Homebrew formulae for [remem](https://github.com/majiayu000/remem),
+Homebrew formulae and casks for [remem](https://github.com/majiayu000/remem),
 [ccstats](https://github.com/majiayu000/ccstats),
 [keyspoor](https://github.com/majiayu000/keyspoor),
-[rust-litellm-gateway](https://github.com/majiayu000/litellm-rs), and AtlasCloud CLI.
+[rust-litellm-gateway](https://github.com/majiayu000/litellm-rs), AtlasCloud CLI,
+and the [QuotaBar](https://github.com/majiayu000/quotabar) macOS app.
 This repository distributes packages; application source and usage documentation live upstream.
 
 ## Install
@@ -27,6 +28,16 @@ brew install remem
 | [`rust-litellm-gateway`](Formula/rust-litellm-gateway.rb) | `gateway` | [AI gateway](https://github.com/majiayu000/litellm-rs#readme) | macOS, Intel and Apple Silicon |
 | [`atlascloud-cli`](Formula/atlascloud-cli.rb) | `atlas`, `atlas-mcp` | [Pinned distribution release](https://github.com/majiayu000/homebrew-tap/releases/tag/atlascloud-cli-v0.1.0) | macOS and Linux, Intel and ARM64 |
 
+QuotaBar is a macOS menu bar app distributed as a cask:
+
+```bash
+brew install --cask majiayu000/tap/quotabar
+```
+
+| Cask | Installs | Documentation | Platforms in this tap |
+| --- | --- | --- | --- |
+| [`quotabar`](Casks/quotabar.rb) | `QuotaBar.app` | [AI quota menu bar app](https://github.com/majiayu000/quotabar#readme) | macOS, Intel and Apple Silicon (signed, notarized DMG) |
+
 After installing remem, follow its upstream integration instructions or run `brew info remem`
 for the tap's configuration steps. Installing the binary alone does not configure agent hooks.
 
@@ -42,7 +53,9 @@ brew upgrade remem       # Replace with the formula you installed
 brew uninstall remem
 ```
 
-Formula versions and download checksums are recorded in [`Formula/`](Formula/).
+Formula versions and download checksums are recorded in [`Formula/`](Formula/);
+cask versions and checksums are in [`Casks/`](Casks/). Use `brew upgrade --cask quotabar`
+and `brew uninstall --cask quotabar` for the cask (`--zap` also removes its settings and caches).
 
 ## Choose the intended formula and command
 
