@@ -4,7 +4,10 @@ Homebrew formulae and casks for [remem](https://github.com/majiayu000/remem),
 [ccstats](https://github.com/majiayu000/ccstats),
 [keyspoor](https://github.com/majiayu000/keyspoor),
 [rust-litellm-gateway](https://github.com/majiayu000/litellm-rs), AtlasCloud CLI,
-and the [QuotaBar](https://github.com/majiayu000/quotabar) macOS app.
+[markitdown-rs](https://github.com/majiayu000/markitdown-rs), [receipt](https://github.com/majiayu000/receipt),
+[trustsweep](https://github.com/majiayu000/trustsweep), [rust1100-check](https://github.com/majiayu000/rust1100-check),
+[bbhost-check](https://github.com/majiayu000/bbhost-check), [clonewatch](https://github.com/majiayu000/clonewatch),
+[exposewatch](https://github.com/majiayu000/exposewatch), and the [QuotaBar](https://github.com/majiayu000/quotabar) macOS app.
 This repository distributes packages; application source and usage documentation live upstream.
 
 ## Install
@@ -18,6 +21,8 @@ brew install remem
 # Or: brew install ccstats
 # Or: brew install rust-litellm-gateway
 # Or: brew install atlascloud-cli
+# Or: brew install markitdown-rs   (likewise receipt, trustsweep, rust1100-check,
+#     bbhost-check, clonewatch, exposewatch)
 ```
 
 | Formula | Installed command | Documentation | Platforms in this tap |
@@ -27,6 +32,13 @@ brew install remem
 | [`ccstats`](Formula/ccstats.rb) | `ccstats` | [Usage statistics](https://github.com/majiayu000/ccstats#readme) | Builds from source with Rust |
 | [`rust-litellm-gateway`](Formula/rust-litellm-gateway.rb) | `gateway` | [AI gateway](https://github.com/majiayu000/litellm-rs#readme) | macOS, Intel and Apple Silicon |
 | [`atlascloud-cli`](Formula/atlascloud-cli.rb) | `atlas`, `atlas-mcp` | [Pinned distribution release](https://github.com/majiayu000/homebrew-tap/releases/tag/atlascloud-cli-v0.1.0) | macOS and Linux, Intel and ARM64 |
+| [`markitdown-rs`](Formula/markitdown-rs.rb) | `markitdown` | [Documents to Markdown](https://github.com/majiayu000/markitdown-rs#readme) | macOS Intel and Apple Silicon, Linux x86_64 |
+| [`receipt`](Formula/receipt.rb) | `receipt` | [Agent Stop hook](https://github.com/majiayu000/receipt#readme) | macOS Intel and Apple Silicon, Linux x86_64 |
+| [`trustsweep`](Formula/trustsweep.rb) | `trustsweep` | [Revoked CA scanner](https://github.com/majiayu000/trustsweep#readme) | macOS Intel and Apple Silicon, Linux x86_64 |
+| [`rust1100-check`](Formula/rust1100-check.rb) | `cargo-rust1100-check` | [Rust 1.100 readiness check](https://github.com/majiayu000/rust1100-check#readme) | macOS Intel and Apple Silicon, Linux x86_64 |
+| [`bbhost-check`](Formula/bbhost-check.rb) | `bbhost-check` | [Bitbucket SSH migration check](https://github.com/majiayu000/bbhost-check#readme) | macOS Intel and Apple Silicon, Linux x86_64 |
+| [`clonewatch`](Formula/clonewatch.rb) | `clonewatch` | [Impersonating repo finder](https://github.com/majiayu000/clonewatch#readme) | macOS Intel and Apple Silicon, Linux x86_64 |
+| [`exposewatch`](Formula/exposewatch.rb) | `exposewatch` | [Exposed container check](https://github.com/majiayu000/exposewatch#readme) | macOS Intel and Apple Silicon, Linux x86_64 |
 
 QuotaBar is a macOS menu bar app distributed as a cask:
 
