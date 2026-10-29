@@ -1,9 +1,9 @@
 cask "quotabar" do
   arch arm: "aarch64", intel: "x64"
 
-  version "0.5.9"
-  sha256 arm:   "8a5bfb1740bf53c0a16ede2b66e3682a6a1be7c697019b3256b08bda404af442",
-         intel: "6c0b67d6eda0b92e0380760fbe2539143c1908d7596c245b4e428dbc1fe21435"
+  version "0.6.0"
+  sha256 arm:   "1d4f4259605928376f289d1e11bf702f5ee2b6104bb7b112e4b1409f7b298ad9",
+         intel: "399af95558329c6aadbc36738c3be310c487abfa809aeb24903406e156992ff0"
 
   url "https://github.com/majiayu000/quotabar/releases/download/v#{version}/QuotaBar_#{version}_#{arch}.dmg"
   name "QuotaBar"
