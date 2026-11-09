@@ -7,7 +7,8 @@ Homebrew formulae and casks for [remem](https://github.com/majiayu000/remem),
 [markitdown-rs](https://github.com/majiayu000/markitdown-rs), [receipt](https://github.com/majiayu000/receipt),
 [trustsweep](https://github.com/majiayu000/trustsweep), [rust1100-check](https://github.com/majiayu000/rust1100-check),
 [bbhost-check](https://github.com/majiayu000/bbhost-check), [clonewatch](https://github.com/majiayu000/clonewatch),
-[exposewatch](https://github.com/majiayu000/exposewatch), and the [QuotaBar](https://github.com/majiayu000/quotabar) macOS app.
+[exposewatch](https://github.com/majiayu000/exposewatch), and the [QuotaBar](https://github.com/majiayu000/quotabar)
+and [Fibo](https://fibo.page) macOS apps.
 This repository distributes packages; application source and usage documentation live upstream.
 
 ## Install
@@ -40,15 +41,17 @@ brew install remem
 | [`clonewatch`](Formula/clonewatch.rb) | `clonewatch` | [Impersonating repo finder](https://github.com/majiayu000/clonewatch#readme) | macOS Intel and Apple Silicon, Linux x86_64 |
 | [`exposewatch`](Formula/exposewatch.rb) | `exposewatch` | [Exposed container check](https://github.com/majiayu000/exposewatch#readme) | macOS Intel and Apple Silicon, Linux x86_64 |
 
-QuotaBar is a macOS menu bar app distributed as a cask:
+QuotaBar and Fibo are macOS apps distributed as casks:
 
 ```bash
 brew install --cask majiayu000/tap/quotabar
+brew install --cask majiayu000/tap/fibo
 ```
 
 | Cask | Installs | Documentation | Platforms in this tap |
 | --- | --- | --- | --- |
 | [`quotabar`](Casks/quotabar.rb) | `QuotaBar.app` | [AI quota menu bar app](https://github.com/majiayu000/quotabar#readme) | macOS, Intel and Apple Silicon (signed, notarized DMG) |
+| [`fibo`](Casks/fibo.rb) | `Fibo.app` | [Workbench for coding agents](https://fibo.page) | macOS 14+, Apple Silicon (signed, notarized DMG) |
 
 After installing remem, follow its upstream integration instructions or run `brew info remem`
 for the tap's configuration steps. Installing the binary alone does not configure agent hooks.
@@ -66,8 +69,8 @@ brew uninstall remem
 ```
 
 Formula versions and download checksums are recorded in [`Formula/`](Formula/);
-cask versions and checksums are in [`Casks/`](Casks/). Use `brew upgrade --cask quotabar`
-and `brew uninstall --cask quotabar` for the cask (`--zap` also removes its settings and caches).
+cask versions and checksums are in [`Casks/`](Casks/). Use `brew upgrade --cask <cask>`
+and `brew uninstall --cask <cask>` for a cask (`--zap` also removes its settings and caches).
 
 ## Choose the intended formula and command
 
