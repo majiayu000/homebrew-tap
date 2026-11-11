@@ -4,24 +4,24 @@
 class BbhostCheck < Formula
   desc "Find Bitbucket SSH remotes and configs that need migrating"
   homepage "https://github.com/majiayu000/bbhost-check"
-  version "0.1.1"
+  version "0.1.2"
   license "MIT"
 
   on_macos do
     on_intel do
-      url "https://github.com/majiayu000/bbhost-check/releases/download/v0.1.1/bbhost-check-x86_64-apple-darwin.tar.gz"
-      sha256 "cc19fc5004972ffc64016f9d4d20e94eabea9ab93905fa48dc233b8cc042dcaa"
+      url "https://github.com/majiayu000/bbhost-check/releases/download/v0.1.2/bbhost-check-x86_64-apple-darwin.tar.gz"
+      sha256 "eebcbc25d534cd35a2f2e943f039938ebc2a274ad47c552d3678513aa23b3a14"
     end
     on_arm do
-      url "https://github.com/majiayu000/bbhost-check/releases/download/v0.1.1/bbhost-check-aarch64-apple-darwin.tar.gz"
-      sha256 "12dd583b514b28372782a000936cfaa35fd56c86e73cc39e0441311dcec0db23"
+      url "https://github.com/majiayu000/bbhost-check/releases/download/v0.1.2/bbhost-check-aarch64-apple-darwin.tar.gz"
+      sha256 "3f12dd2ba00a114c99792ba334ff4f95473f4c1563a87c2a16d0c21c8245a30f"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/majiayu000/bbhost-check/releases/download/v0.1.1/bbhost-check-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "658ad811436cbb7f4e7bfa32173bbb7993a1a18705d1be65aa2acaeca374176c"
+      url "https://github.com/majiayu000/bbhost-check/releases/download/v0.1.2/bbhost-check-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "9403458b62679efd3fc5146283b9266d13ad418d8d1ad980acb1dd77eaa47bd2"
     end
   end
 
@@ -30,6 +30,6 @@ class BbhostCheck < Formula
   end
 
   test do
-    assert_match "bbhost-check 0.1.1", shell_output("#{bin}/bbhost-check --version")
+    assert_match "bbhost-check 0.1.2", shell_output("#{bin}/bbhost-check --version")
   end
 end
