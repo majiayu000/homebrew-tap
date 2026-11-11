@@ -1,6 +1,6 @@
 cask "fibo" do
-  version "0.1.0"
-  sha256 "4ef1467d95b1e150a57e5f82dcd02e11ec0a68a9c76fc775f3e3a0ac773b12d6"
+  version "0.2.0"
+  sha256 "b5bf82fd9b5901e9acb4c953c9624dd44457f3b69fc3f3d6cba251166d8565a2"
 
   url "https://github.com/majiayu000/fibo/releases/download/v#{version}/Fibo-#{version}-arm64.dmg",
       verified: "github.com/majiayu000/fibo/"
