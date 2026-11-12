@@ -1,8 +1,11 @@
 cask "fibo" do
-  version "0.1.1"
-  sha256 "687724ff6a63a0a2a97743321cdb0a5b938fc9e80a6da997cdf57f233be234a4"
+  arch arm: "arm64", intel: "x86_64"
 
-  url "https://github.com/majiayu000/fibo/releases/download/v#{version}/Fibo-#{version}-arm64.dmg",
+  version "0.1.2"
+  sha256 arm:   "c5030dc031caa9e282c5ddcb2633096303715ed53d095d3279f71f468acdc500",
+         intel: "c581050cfa67b5c1d4d87703b2ac15270a5d17c06c5a5d9d41f52e3cac939a46"
+
+  url "https://github.com/majiayu000/fibo/releases/download/v#{version}/Fibo-#{version}-#{arch}.dmg",
       verified: "github.com/majiayu000/fibo/"
   name "Fibo"
   desc "Native workbench for coding agents"
@@ -13,7 +16,6 @@ cask "fibo" do
     strategy :github_latest
   end
 
-  depends_on arch: :arm64
   depends_on macos: :sonoma
 
   app "Fibo.app"
