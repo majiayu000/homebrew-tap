@@ -1,9 +1,9 @@
 cask "fibo" do
   arch arm: "arm64", intel: "x86_64"
 
-  version "0.1.3"
-  sha256 arm:   "659d0681e0f92db367080b1dc7299e9be214651f6826df4fd82ae071d66a16a2",
-         intel: "ec01f848ba346ac1747dd3f0e203c880b4fb39b62cae520201c0b58fd786d34d"
+  version "0.1.4"
+  sha256 arm:   "9259e07ae2a294279d00deafadceee16b0720d7f0b6b4a3e2c8a63059dfbec33",
+         intel: "1a361f0883afddd771fe4272d622f02ae2246050d51dc09539b903ec660eeede"
 
   url "https://github.com/majiayu000/fibo/releases/download/v#{version}/Fibo-#{version}-#{arch}.dmg",
       verified: "github.com/majiayu000/fibo/"
